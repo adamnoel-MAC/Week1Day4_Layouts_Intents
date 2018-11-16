@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Week1Day4-Layouts-Intents</string>
+    <string name="begin">Begin</string>
+    <string name="retrieve">Retrieve</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="birth_month">Birth Month</string>
+    <string name="birth_day">Birth Day</string>
+    <string name="birth_year">Birth Year</string>
+    <string name="street_number">Street Number</string>
+    <string name="street_name">Street Name</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
+    <string name="complete_profile">Complete Profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="street_address">Street Address</string>
+    <string name="city_state_zip">City, State Zip</string>
+    <string name="ok">OK</string>
+</resources>
