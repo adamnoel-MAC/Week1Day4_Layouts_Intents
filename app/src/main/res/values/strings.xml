@@ -19,4 +19,6 @@
     <string name="city_state_zip">City, State Zip</string>
     <string name="ok">OK</string>
     <string name="phone_number">Phone Number</string>
+    <string name="objects">Objects</string>
+    <string name="bundle">Bundle</string>
 </resources>

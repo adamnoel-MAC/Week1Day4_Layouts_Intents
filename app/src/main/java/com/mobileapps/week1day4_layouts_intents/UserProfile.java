@@ -2,6 +2,7 @@ package com.mobileapps.week1day4_layouts_intents;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,54 +18,63 @@ public class UserProfile extends AppCompatActivity {
     }
     public void onButtonClick(View view) {
 
-        EditText etFirstName = findViewById(R.id.etFirstName);
-        String rFirstName = etFirstName.getText().toString();
-
-        EditText etLastName = findViewById(R.id.etLastName);
-        String rLastName = etLastName.getText().toString();
-
-        EditText etBirthMonth = findViewById(R.id.etBirthMonth);
-        String rBirthMonth = etBirthMonth.getText().toString();
-
-        EditText etBirthDay = findViewById(R.id.etBirthDay);
-        String rBirthDay = etBirthDay.getText().toString();
-
-        EditText etBirthYear = findViewById(R.id.etBirthYear);
-        String rBirthYear = etBirthYear.getText().toString();
-
-        EditText etStreetNumber = findViewById(R.id.etStreetNumber);
-        String rStreetNumber = etStreetNumber.getText().toString();
-
-        EditText etStreetName = findViewById(R.id.etStreetName);
-        String rStreetName = etStreetName.getText().toString();
-
-        EditText etCity = findViewById(R.id.etCity);
-        String rCity = etCity.getText().toString();
-
-        EditText etState = findViewById(R.id.etState);
-        String rState = etState.getText().toString();
-
-        EditText etZip = findViewById(R.id.etZip);
-        String rZip = etZip.getText().toString();
-
-        EditText etPhoneNumber = findViewById(R.id.etPhoneNumber);
-        String rPhoneNumber = etPhoneNumber.getText().toString();
-
         Intent returnIntent = new Intent();
 
-        returnIntent.putExtra("rFirstName",rFirstName);
-        returnIntent.putExtra("rLastName",rLastName);
-        returnIntent.putExtra("rBirthDay",rBirthDay);
-        returnIntent.putExtra("rBirthMonth",rBirthMonth);
-        returnIntent.putExtra("rBirthYear",rBirthYear);
-        returnIntent.putExtra("rStreetNumber",rStreetNumber);
-        returnIntent.putExtra("rStreetName",rStreetName);
-        returnIntent.putExtra("rCity",rCity);
-        returnIntent.putExtra("rState",rState);
-        returnIntent.putExtra("rZip",rZip);
-        returnIntent.putExtra("rPhoneNumber",rPhoneNumber);
+        EditText etFirstName = findViewById(R.id.etFirstName);
+        EditText etLastName = findViewById(R.id.etLastName);
+        EditText etBirthMonth = findViewById(R.id.etBirthMonth);
+        EditText etBirthDay = findViewById(R.id.etBirthDay);
+        EditText etBirthYear = findViewById(R.id.etBirthYear);
+        EditText etStreetNumber = findViewById(R.id.etStreetNumber);
+        EditText etStreetName = findViewById(R.id.etStreetName);
+        EditText etCity = findViewById(R.id.etCity);
+        EditText etState = findViewById(R.id.etState);
+        EditText etZip = findViewById(R.id.etZip);
+        EditText etPhoneNumber = findViewById(R.id.etPhoneNumber);
 
-        setResult(RESULT_OK,returnIntent);
-        finish();
+        String rFirstName = etFirstName.getText().toString();
+        String rLastName = etLastName.getText().toString();
+        String rBirthMonth = etBirthMonth.getText().toString();
+        String rBirthDay = etBirthDay.getText().toString();
+        String rBirthYear = etBirthYear.getText().toString();
+        String rStreetNumber = etStreetNumber.getText().toString();
+        String rStreetName = etStreetName.getText().toString();
+        String rCity = etCity.getText().toString();
+        String rState = etState.getText().toString();
+        String rZip = etZip.getText().toString();
+        String rPhoneNumber = etPhoneNumber.getText().toString();
+
+        switch (view.getId()) {
+            case R.id.btnOK:
+
+                returnIntent.putExtra("rFirstName", rFirstName);
+                returnIntent.putExtra("rLastName", rLastName);
+                returnIntent.putExtra("rBirthDay", rBirthDay);
+                returnIntent.putExtra("rBirthMonth", rBirthMonth);
+                returnIntent.putExtra("rBirthYear", rBirthYear);
+                returnIntent.putExtra("rStreetNumber", rStreetNumber);
+                returnIntent.putExtra("rStreetName", rStreetName);
+                returnIntent.putExtra("rCity", rCity);
+                returnIntent.putExtra("rState", rState);
+                returnIntent.putExtra("rZip", rZip);
+                returnIntent.putExtra("rPhoneNumber", rPhoneNumber);
+
+                setResult(1, returnIntent);
+                finish();
+                break;
+
+            case R.id.btnObjects:
+
+                Person person = new Person(rFirstName,rLastName,rBirthDay,rBirthMonth,rBirthYear);
+                returnIntent.putExtra("person",person);
+
+                Place place = new Place(rStreetNumber,rStreetName,rCity,rState,rZip);
+                returnIntent.putExtra("place", place);
+
+                setResult(2, returnIntent);
+                finish();
+                break;
+
+        }
     }
 }

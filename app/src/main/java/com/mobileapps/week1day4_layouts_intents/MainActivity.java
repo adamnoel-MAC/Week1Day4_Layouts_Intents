@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int PROFILE_ACTIVITY_REQUEST_CODE = 0;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PROFILE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == 1) {
                 String rFirstName = data.getStringExtra("rFirstName");
                 String rLastName = data.getStringExtra("rLastName");
                 String rBirthDay = data.getStringExtra("rBirthDay");
@@ -68,6 +70,27 @@ public class MainActivity extends AppCompatActivity {
                 tvStreetAddress.setText(rStreetNumber + " " + rStreetName);
                 tvCitySTZip.setText(rCity + ", " + rState + "  " + rZip);
                 tvPhoneNumber.setText(rPhoneNumber);
+            }
+            else if (resultCode == 2){
+                Serializable person = (Person) data.getSerializableExtra("person");
+                String rFirstName = ((Person) person).FirstName;
+                String rLastName = ((Person) person).LastName;
+                String rBirthDay = ((Person) person).BirthDay;
+                String rBirthMonth = ((Person) person).BirthMonth;
+                String rBirthYear = ((Person) person).BirthYear;
+
+                Place place = data.getParcelableExtra("place");
+                String rStreetNumber = place.getStreetNumber();
+                String rStreetName = place.getStreetName();
+                String rCity = place.getCity();
+                String rState = place.getState();
+                String rZip = place.getZip();
+
+                tvFullName.setText(rFirstName + " " + rLastName);
+                tvBirthDate.setText(rBirthMonth + "/" + rBirthDay + "/" + rBirthYear);
+                tvStreetAddress.setText(rStreetNumber + " " + rStreetName);
+                tvCitySTZip.setText(rCity + ", " + rState + "  " + rZip);
+//                tvPhoneNumber.setText(rPhoneNumber);
             }
             if (resultCode == RESULT_CANCELED) {
                 //Write your code if there's no result

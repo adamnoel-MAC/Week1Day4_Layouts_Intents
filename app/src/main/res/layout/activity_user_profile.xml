@@ -93,4 +93,18 @@
         android:onClick="onButtonClick"
         android:text="@string/ok" />
 
+    <Button
+        android:id="@+id/btnObjects"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="@string/objects" />
+
+    <Button
+        android:id="@+id/btnBundle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="@string/bundle" />
+
 </LinearLayout>
