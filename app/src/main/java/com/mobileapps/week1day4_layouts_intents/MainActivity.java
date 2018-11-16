@@ -86,11 +86,41 @@ public class MainActivity extends AppCompatActivity {
                 String rState = place.getState();
                 String rZip = place.getZip();
 
+                String rPhoneNumber = data.getStringExtra("rPhoneNumber");
+
                 tvFullName.setText(rFirstName + " " + rLastName);
                 tvBirthDate.setText(rBirthMonth + "/" + rBirthDay + "/" + rBirthYear);
                 tvStreetAddress.setText(rStreetNumber + " " + rStreetName);
                 tvCitySTZip.setText(rCity + ", " + rState + "  " + rZip);
-//                tvPhoneNumber.setText(rPhoneNumber);
+                tvPhoneNumber.setText(rPhoneNumber);
+            }
+            else if (resultCode == 3){
+
+                Bundle extrasBundle = data.getBundleExtra("bundle");
+
+                Serializable person = (Person) extrasBundle.getSerializable("person");
+
+                String rFirstName = ((Person) person).FirstName;
+                String rLastName = ((Person) person).LastName;
+                String rBirthDay = ((Person) person).BirthDay;
+                String rBirthMonth = ((Person) person).BirthMonth;
+                String rBirthYear = ((Person) person).BirthYear;
+
+                Place place = extrasBundle.getParcelable("place");
+
+                String rStreetNumber = place.getStreetNumber();
+                String rStreetName = place.getStreetName();
+                String rCity = place.getCity();
+                String rState = place.getState();
+                String rZip = place.getZip();
+
+                String rPhoneNumber = extrasBundle.getString("rPhoneNumber");
+
+                tvFullName.setText(rFirstName + " " + rLastName);
+                tvBirthDate.setText(rBirthMonth + "/" + rBirthDay + "/" + rBirthYear);
+                tvStreetAddress.setText(rStreetNumber + " " + rStreetName);
+                tvCitySTZip.setText(rCity + ", " + rState + "  " + rZip);
+                tvPhoneNumber.setText(rPhoneNumber);
             }
             if (resultCode == RESULT_CANCELED) {
                 //Write your code if there's no result

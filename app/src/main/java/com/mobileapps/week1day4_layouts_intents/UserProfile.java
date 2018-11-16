@@ -44,6 +44,9 @@ public class UserProfile extends AppCompatActivity {
         String rZip = etZip.getText().toString();
         String rPhoneNumber = etPhoneNumber.getText().toString();
 
+        Person person = new Person(rFirstName,rLastName,rBirthDay,rBirthMonth,rBirthYear);
+        Place place = new Place(rStreetNumber,rStreetName,rCity,rState,rZip);
+
         switch (view.getId()) {
             case R.id.btnOK:
 
@@ -65,16 +68,26 @@ public class UserProfile extends AppCompatActivity {
 
             case R.id.btnObjects:
 
-                Person person = new Person(rFirstName,rLastName,rBirthDay,rBirthMonth,rBirthYear);
                 returnIntent.putExtra("person",person);
-
-                Place place = new Place(rStreetNumber,rStreetName,rCity,rState,rZip);
                 returnIntent.putExtra("place", place);
+                returnIntent.putExtra("rPhoneNumber", rPhoneNumber);
 
                 setResult(2, returnIntent);
                 finish();
                 break;
 
+            case R.id.btnBundle:
+
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("person",person);
+                bundle.putParcelable("place",place);
+                bundle.putString("rPhoneNumber",rPhoneNumber);
+
+                returnIntent.putExtra("bundle", bundle);
+
+                setResult(3, returnIntent);
+                finish();
         }
     }
 }
