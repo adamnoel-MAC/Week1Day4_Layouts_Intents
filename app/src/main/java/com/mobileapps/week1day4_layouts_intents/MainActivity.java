@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvBirthDate;
     TextView tvStreetAddress;
     TextView tvCitySTZip;
+    TextView tvPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tvBirthDate = findViewById(R.id.tvBirthDate);
         tvStreetAddress = findViewById(R.id.tvStreetAddress);
         tvCitySTZip = findViewById(R.id.tvCitySTZip);
+        tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
 
     }
 
@@ -50,9 +52,22 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PROFILE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 String rFirstName = data.getStringExtra("rFirstName");
+                String rLastName = data.getStringExtra("rLastName");
+                String rBirthDay = data.getStringExtra("rBirthDay");
+                String rBirthMonth = data.getStringExtra("rBirthMonth");
+                String rBirthYear = data.getStringExtra("rBirthYear");
+                String rStreetNumber = data.getStringExtra("rStreetNumber");
+                String rStreetName = data.getStringExtra("rStreetName");
+                String rCity = data.getStringExtra("rCity");
+                String rState = data.getStringExtra("rState");
+                String rZip = data.getStringExtra("rZip");
+                String rPhoneNumber = data.getStringExtra("rPhoneNumber");
 
-                tvFullName.setText(rFirstName);
-
+                tvFullName.setText(rFirstName + " " + rLastName);
+                tvBirthDate.setText(rBirthMonth + "/" + rBirthDay + "/" + rBirthYear);
+                tvStreetAddress.setText(rStreetNumber + " " + rStreetName);
+                tvCitySTZip.setText(rCity + ", " + rState + "  " + rZip);
+                tvPhoneNumber.setText(rPhoneNumber);
             }
             if (resultCode == RESULT_CANCELED) {
                 //Write your code if there's no result

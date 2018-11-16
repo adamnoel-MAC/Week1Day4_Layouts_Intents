@@ -41,7 +41,6 @@
         android:id="@+id/etBirthYear"
         android:inputType="number"
         android:hint="@string/birth_year"
-        android:layout_toRightOf="@+id/etBirthDay"
         android:layout_width="110dp"
         android:layout_height="wrap_content" />
 

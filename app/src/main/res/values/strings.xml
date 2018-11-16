@@ -2,7 +2,6 @@
     <string name="app_name">Week1Day4-Layouts-Intents</string>
     <string name="begin">Begin</string>
     <string name="retrieve">Retrieve</string>
-    <string name="phone_number">Phone Number</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="birth_month">Birth Month</string>
@@ -19,4 +18,5 @@
     <string name="street_address">Street Address</string>
     <string name="city_state_zip">City, State Zip</string>
     <string name="ok">OK</string>
+    <string name="phone_number">Phone Number</string>
 </resources>
