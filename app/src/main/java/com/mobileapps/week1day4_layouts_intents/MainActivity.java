@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int PROFILE_ACTIVITY_REQUEST_CODE = 0;
+    private static final int PROFILE_ACTIVITY_REQUEST_CODE = 9;
 
     TextView tvFullName;
     TextView tvBirthDate;
@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         tvStreetAddress = findViewById(R.id.tvStreetAddress);
         tvCitySTZip = findViewById(R.id.tvCitySTZip);
         tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
+
+        Bundle extrasBundle = getIntent().getBundleExtra("bundle");
+        if(extrasBundle != null) {
+
+            String rFirstName = extrasBundle.getString("rFirstName");
+            tvFullName.setText(rFirstName);
+        }
 
     }
 

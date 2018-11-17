@@ -87,6 +87,13 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btnSend"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="@string/send"/>
+
+    <Button
         android:id="@+id/btnOK"
         android:layout_width="100dp"
         android:layout_height="wrap_content"

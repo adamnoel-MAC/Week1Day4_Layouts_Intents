@@ -16,6 +16,7 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
     }
+
     public void onButtonClick(View view) {
 
         Intent returnIntent = new Intent();
@@ -48,6 +49,18 @@ public class UserProfile extends AppCompatActivity {
         Place place = new Place(rStreetNumber,rStreetName,rCity,rState,rZip);
 
         switch (view.getId()) {
+            case R.id.btnSend:
+
+                Intent sendIntent = new Intent(this, MainActivity.class);
+                Bundle sbundle = new Bundle();
+                sbundle.putString("rFirstName",rFirstName);
+                sendIntent.putExtra("bundle", sbundle);
+
+                startActivity(sendIntent);
+
+                finish();
+                break;
+
             case R.id.btnOK:
 
                 returnIntent.putExtra("rFirstName", rFirstName);
